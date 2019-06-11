@@ -1,0 +1,6 @@
+##NO_PUBKEY F42ED6FBAB17C654
+sudo apt-key  adv --keyserver keyserver.ubuntu.com --recv-keys F42ED6FBAB17C654
+
+##gpgv: 无法检查签名：找不到公钥
+sudo aptitude install debian-keyring
+
