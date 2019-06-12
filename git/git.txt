@@ -4,3 +4,23 @@ sudo apt-get install git
 ##git  设置
 git config --global user.name “Your Name”
 git config --global user.email “email@example.com”
+
+##创建版本库并将其变为git可管理的仓库
+makedir **//文件夹
+git init
+
+##创建文件**.**，放在目录下。
+vi **.**
+
+##使用git add将文件添加到仓库。
+git add **.**
+
+##使用命令git commit将文件提交到仓库
+git commit -m "说明"
+
+##查看状态
+git status
+
+##查看修改的部分
+git dif
+
