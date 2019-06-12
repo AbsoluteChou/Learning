@@ -22,5 +22,42 @@ git commit -m "说明"
 git status
 
 ##查看修改的部分
-git dif
+git diff
+
+##查看git日志
+git log
+
+##退回到之前的版本
+git reset --hard HEAD^    //上个版本
+git reset --hard HEAD^^   //上上个版本
+git reset --hard HEAD~100 //前100个版本
+
+##在不关终端的环境下（可以看到被替代的commit ID）返回被替代的版本
+git reset --hard ****（commit ID的前几位数，方便git查找）
+
+##记住你的每一个命令
+git reflog
+
+##查看工作区和版本库里最新版的区别
+git diff HEAD -- ***.**
+
+##丢弃工作区的修改(没加到暂存区)
+git checkout -- ***.**
+
+##加到了暂存区，先将暂存区的修改退回到工作区，再丢弃工作区修改
+git reset HEAD <file>
+
+##如果提交到了版本库，将版本退回到上一版本，如果提交到版本库，并推送了，就无法更改了
+
+##要删除文件时，先在工作空间中删除，再git rm并git commit
+git rm <file>
+git commit -m "***"
+
+##删错时，可用版本库里的版本替换工作区的版本
+git checkout -- file
+
+##在电脑上创建SSH KEY
+ssh-keygen -t rsa -C "email"
+
+
 
