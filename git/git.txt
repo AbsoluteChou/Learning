@@ -56,8 +56,59 @@ git commit -m "***"
 ##删错时，可用版本库里的版本替换工作区的版本
 git checkout -- file
 
-##在电脑上创建SSH KEY
+##在电脑上创建SSH KEY,并将key添加到github中
 ssh-keygen -t rsa -C "email"
 
+##将本地已有仓库和GitHub仓库相关联
+git remote add	gitorigin git@github.com:AbsoluteChou/Learning.git
 
+##将本地库内容推送到远程库
+git push -u gitorigin master
 
+##将github上已经存在的仓库克隆到本地
+git clone git@github.com:AbsoluteChou/仓库.git
+
+##查看分支/创建分支/切换分支
+git branch / git branch <name> / git checkout <name>
+
+##创建加切换分支
+git checkout -b <name>
+
+##合并某分支到当前分支
+git merge <name>
+
+##删除分支
+git branch -d <name>
+
+##当分支合并时出现合并失败时，可以使用git status查看冲突内容（虽然合并失败，但是HEAD指向的文件已经是合并完的文件，内容中有不同的显示），可以打开文件，内部会有文件冲突的内容显示，手动修改后，可再提交。git log可以查看分支合并情况。git log --graph可以查看分支合并图。然后再删除分支。
+
+##分支管理：一般推荐在dev分支上进行工作，master分支上只进行发布确定的版本，当多人协同工作时，可同时在dev分支上进行汇总，最后将需要的版本发布到master上。在这种情况下就需要在合并分支时保留分支上的信息。此时合并分支会产生一个新的commit，命令中需要-m
+git merge --no-ff -m “说明” 分支
+
+##bug分支：对急需处理的bug，可将正在进行的未完成工作封存，在主线修改完bug并合并发布后，再打开。
+git stash / 存储当前工作
+git stash list / 查看封存内容
+git stash apply + git stash drop / 恢复现场并删除stash内容
+git satsh pop / 以上两个命令合并
+
+##在开发新功能时建议开新的功能分支，完成后合并到dev，如果该分支在未合并到dev之前就要求删除（功能开发放弃），可强行删除分支。
+git branch -D <name>
+
+##查看远程仓库信息
+git remote 
+git remote -v 显示详细信息
+
+##推送分支
+git push origin dev（master） / git push <远程库> <分支>
+
+##当从远程库clone时，默认只能看到master分支，要clone其他分支（例如dev），需要创建远程的dev分支到本地
+git checkout -b dev origin/dev
+
+##将本地dev分支push到远程
+git push origin dev
+
+##当你的推送与其他人的推送有冲突时，push失败，可将最新的提交用git pull从origin/dev抓下来，本地合并后，再推送。当git pull失败，是因为没有指定分支与本地的dev链接
+git branch --set-upstream-to-origin/dev dev
+
+##将原本分叉的提交变成一条直线
+git rebase
