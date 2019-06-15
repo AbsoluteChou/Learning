@@ -138,4 +138,9 @@ git push gitoregin --tags
 git tag -d <tagname>
 git push gitorigin :refs/tags/<tagname>
 
-##
+##在git工作区创建.gitignore文件，将要忽略的的文件名填入，git会自动忽略这些文件。编辑完成后要将gitignore也提交到git。有时候当你想将一个文件到git但不能添加时，可能原因是这个文件被.gitignore忽略了，可强制添加到git
+git add -f <filename>
+
+##git可设置命令的缩写
+git config --global alias.缩写 原命令
+
