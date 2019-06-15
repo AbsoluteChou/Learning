@@ -112,3 +112,30 @@ git branch --set-upstream-to-origin/dev dev
 
 ##将原本分叉的提交变成一条直线
 git rebase
+
+##创建标签，           查看标签
+git tag <tagname>     /   git tag
+
+##标签默认是打在最新的commit上的，如果需要打在之前的commit上，需要找到对应的commit ID
+git tag <tagname> <commit ID>
+
+##查看标签信息
+git show <tagname>
+
+##创建带有说明的标签，用-a指定标签名，-m指定说明文字
+git tag -a <tagname> -m "说明" <commit ID>
+
+##删除标签
+git tag -d <tagname>
+
+##推送某个标签到远程
+git push gitorigin <tagname>
+
+##或一次推送全部标签到远程
+git push gitoregin --tags
+
+##当标签已推送到远程时，若需要删除，应先删除本地，再删除远程
+git tag -d <tagname>
+git push gitorigin :refs/tags/<tagname>
+
+##
