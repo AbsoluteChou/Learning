@@ -1,0 +1,10 @@
+/***ROS 多机联动，ip更新***/
+主机、协统机要改环境变量中的IP地址：~/.bascrc；改完之后还要source ~/.bashrc；甚至还要catkin_make+source ./devel/setup.bash
+主机、协统机要改~/etc/hosts 内容
+
+/***激光雷达，小车tf坐标转换***/
+<node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0.20 0 0 0 0 0 base_link laser 50" />
+
+/***ROS PACK 配置环境变量，将该工作包的setup.bash添加到~/.bashrc***/
+echo "source ./devel/setup.bash" >> ~/.bashrc
+source ~/.bashrc

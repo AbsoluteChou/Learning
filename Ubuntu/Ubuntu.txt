@@ -1,6 +1,24 @@
 ##NO_PUBKEY F42ED6FBAB17C654
 sudo apt-key  adv --keyserver keyserver.ubuntu.com --recv-keys F42ED6FBAB17C654
-
 ##gpgv: 无法检查签名：找不到公钥
 sudo aptitude install debian-keyring
 
+/***新的USB转串口不能识别（串口硬件OK）***/
+##查看USB设备
+lsusb// ID ****(vendorID)：****（productID）
+##查看系统是否支持USB转串口
+lsmod | grep usbserial
+##查看系统是否识别了串口
+dmesg | grep ttyUSB0
+##修改udev规则，同时定位外部设备
+/etc/udev/rules.d/
+
+/***Ubuntu使用远程连接***/
+##ubuntu 安装 ssh
+sudo apt-get install openssh-server
+##查看ssh是否启动,有sshd说明已启动
+sudo ps -e |grep ssh
+##启动ssh服务
+sudo service ssh start
+##修改配置文件/etc/ssh/sshd_config,把配置文件中的"PermitRootLogin without-password"加一个"#"号,把它注释掉-->再增加一句"PermitRootLogin yes"
+sudo gedit /etc/ssh/sshd_config
